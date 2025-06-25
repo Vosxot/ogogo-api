@@ -1,0 +1,7 @@
+{
+  "base_url": "https://api-test.ogogo.kg/api",
+  "cert_path": "certs/client_cert.pem",
+  "key_path": "certs/client_key.pem",
+  "phone": "996000464541",
+  "otp": "4541"
+}
