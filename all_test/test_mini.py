@@ -2,10 +2,7 @@ import os
 import pytest
 
 def test_verify_otp_success(session, config):
-    """
-    Успешная проверка валидного OTP.
-    (этот эндпоинт принимает form-data)
-    """
+
     url  = f"{config['base_url']}/Clients/VerifyOtpForLoginByPhone"
     form = {"phone": config["phone"], "otp": config["otp"]}
     resp = session.post(url, data=form)
@@ -19,9 +16,7 @@ def test_verify_otp_success(session, config):
 
 
 def test_login_by_phone(session, config):
-    """
-    Логинимся по телефону + sessionId с селфи на LoginByPhone.
-    """
+
     assert "sessionId" in config, "Нет sessionId — предыдущий тест не прошёл"
     url = f"{config['base_url']}/Clients/LoginByPhone"
     data = {
@@ -42,9 +37,7 @@ def test_login_by_phone(session, config):
     ("",    400),          # пустой
 ])
 def test_verify_otp_negative(session, config, otp_value, expected):
-    """
-    Негативные сценарии для VerifyOtpForLoginByPhone.
-    """
+
     url = f"{config['base_url']}/Clients/VerifyOtpForLoginByPhone"
     resp = session.post(url, data={"phone": config["phone"], "otp": otp_value})
     print(f"➡️ VerifyOtpBad({otp_value}):", resp.text)

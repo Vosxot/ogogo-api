@@ -13,8 +13,6 @@ def config():
 @pytest.fixture(scope="session")
 def session(config):
     s = requests.Session()
-    # клиентский сертификат для mTLS
     s.cert   = (config["cert_path"], config["key_path"])
-    # доверяем системному CA
     s.verify = True
     return s
