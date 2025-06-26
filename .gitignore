@@ -1,19 +1,17 @@
-# Игнорируем виртуальное окружение
+# Python virtual environments
 .venv/
 .venv1/
-
-# Python
 __pycache__/
 *.pyc
 
-# Секретные ключи и сертификаты
+# Sertificates and secrets
 *.pem
+*.key
 all_test/certs/
+settings.json
 
-# Картинки и медиа
+# Media files
 *.jpg
 *.png
-
-# IDE
-.idea/
-*.iml
+*.jpeg
+*.mp4
